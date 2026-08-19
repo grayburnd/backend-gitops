@@ -1,0 +1,35 @@
+team: backend
+environment: prod
+labels:
+  app: voting
+  component: worker
+  env: prod
+  team: backend
+replicas: "1"
+aws:
+  accountId: "AWS_ACCOUNT_ID_REDACTED"
+  region: us-east-1
+image:
+  name: worker
+  tag: 16
+ports: []
+envFrom: #[]
+  - configMapRef:
+      name: postgres-connection
+env: #[]
+  - name: REDIS_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: redis-secret
+        key: password
+  - name: DB_USERNAME
+    valueFrom:
+      secretKeyRef:
+        name: db-admin-backend-credentials
+        key: username
+  - name: DB_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: db-admin-backend-credentials
+        key: password
+  
