@@ -25,11 +25,11 @@ env: #[]
   - name: DB_USERNAME
     valueFrom:
       secretKeyRef:
-        name: db-admin-backend-credentials
+        name: db-admin.postgres.credentials
         key: username
   - name: DB_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: db-admin-backend-credentials
+        name: db-admin.postgres.credentials
         key: password
   
