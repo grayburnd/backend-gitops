@@ -41,7 +41,7 @@ spec:
             - '{{ .env }}-values.yml'      
       # Destination cluster and namespace to deploy the application
       destination:
-        server: '{{. cluster }}'
+        server: '{{ .cluster }}'
         namespace: '{{ .team }}-{{ .env }}'
       # Sync policy
       syncPolicy:
