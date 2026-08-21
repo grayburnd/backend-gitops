@@ -16,6 +16,8 @@ ports: []
 envFrom: #[]
   - configMapRef:
       name: postgres-connection
+  - configMapRef:
+      name: redis-connection
 env: #[]
   - name: REDIS_PASSWORD
     valueFrom:
