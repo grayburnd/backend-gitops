@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: {{ .Values.team }}-{{ .Values.environment }}
-  labels: {{ toYamlPretty .Values.labels | nindent 4}}
+  labels: {{ toYamlPretty .Values.labels | nindent 4 }}
   name: {{ .Chart.Name }}
   annotations:
     argocd.argoproj.io/sync-wave: '1'
