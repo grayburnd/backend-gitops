@@ -11,7 +11,7 @@ aws:
   region: us-east-1
 image:
   name: voting-
-  tag: v0.1.1
+  tag: 625e10788033473023f18b3ddb09fb1b5ec0170e
 ports: []
 envFrom: #[]
   - configMapRef:
@@ -40,10 +40,8 @@ scaling:
   targetCPUUtilizationPercentage: 50
   targetMemoryUtilizationPercentage: 50
 resources:
-  requests: 
+  requests:
     cpu: "0.25"
     memory: "0.35Gi"
 pdb:
   minAvailable: 1
-
-  
