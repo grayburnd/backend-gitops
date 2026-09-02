@@ -11,7 +11,7 @@ aws:
   region: us-east-1
 image:
   name: voting-
-  tag: 625e10788033473023f18b3ddb09fb1b5ec0170e
+  tag: b67d98ef14f85fe3571fb51c897fe3016d5a2637
 ports: []
 envFrom: #[]
   - configMapRef:
