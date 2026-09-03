@@ -9,6 +9,11 @@ replicas: "1"
 aws:
   accountId: "AWS_ACCOUNT_ID_REDACTED"
   region: us-east-1
+securityContext:
+  runAsGroup: 999 #appgroup
+  runAsNonRoot: true
+  runAsUser: 999 #appuser
+  fsGroup: 999
 image:
   name: voting-
   tag: 625e10788033473023f18b3ddb09fb1b5ec0170e
