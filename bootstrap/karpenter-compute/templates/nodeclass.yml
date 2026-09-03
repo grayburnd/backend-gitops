@@ -11,7 +11,7 @@ spec:
     # Select on any subnet that has the "karpenter.sh/discovery: ${CLUSTER_NAME}"
     # AND the "environment: test" tag OR any subnet with ID "subnet-09fa4a0a8f233a921"
     {{- range .Values.subnet.ids }}
-    - ids: {{ . }}
+    - id: {{ . }}
     {{- end }}
 
   # Required, discovers security groups to attach to instances
@@ -22,7 +22,7 @@ spec:
     # AND the "environment: test" tag OR any security group with the "my-security-group" name
     # OR any security group with ID "sg-063d7acfb4b06c82c"
     {{- range .Values.securityGroup.ids }}
-    - ids: {{ . }}
+    - id: {{ . }}
     {{- end }}
 
   # Optional, IAM role to use for the node identity.
