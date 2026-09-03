@@ -1,8 +1,8 @@
 team: backend
 subnet:
-  ids: ["subnet-09fa4a0a8f233a923", "subnet-09fa4a0a8f233a924"] ##Change
+  ids: ["subnet-09f461fdadaef6a80", "subnet-085106a7f31712976"] ##Change
 securityGroup:
-  ids: ["sg-063d7acfb4b06c82c", "sg-063d7acfb4b06c82b"] ##Change
+  ids: ["sg-0e2aa87680af14d96"] ##Change
 iamRoleName:
   node: NodeIAMRole ##Change
 ami:
