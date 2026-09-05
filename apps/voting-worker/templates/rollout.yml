@@ -1,5 +1,5 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Rollout
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   namespace: {{ .Values.team }}-{{ .Values.environment }}
   labels: {{ toYamlPretty .Values.labels | nindent 4 }}
@@ -9,12 +9,6 @@ metadata:
 spec:
   selector:
     matchLabels: {{ toYamlPretty .Values.labels | nindent 6 }}
-  strategy:
-    blueGreen:
-      activeService: {{ .Chart.Name }}-service
-      previewService: {{ .Chart.Name }}-preview-service
-      autoPromotionEnabled: false
-      previewReplicaCount: 1
   template:
     metadata:
       labels: {{ toYamlPretty .Values.labels | nindent 8 }}
@@ -45,11 +39,5 @@ spec:
           {{- end }}
           securityContext:
             allowPrivilegeEscalation: false
-          {{- with .Values.livenessProbe }}
-          livenessProbe: {{ . | toYamlPretty | nindent 12 }}
-          {{- end }}
-          {{- with .Values.readinessProbe }}
-          readinessProbe: {{ . | toYamlPretty | nindent 12 }}
-          {{- end }}
 
             
