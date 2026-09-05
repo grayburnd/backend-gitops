@@ -8,8 +8,8 @@ metadata:
     argocd.argoproj.io/sync-wave: '3'
 spec:
   scaleTargetRef:
-    apiVersion: argoproj.io/v1alpha1
-    kind: Rollout
+    apiVersion: apps/v1
+    kind: Deployment
     name: {{ .Chart.Name }}
   {{- with .Values.scaling }}
   minReplicas: {{ .minReplicas }}
