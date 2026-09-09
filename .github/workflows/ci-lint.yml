@@ -54,7 +54,7 @@ jobs:
             echo "===VALIDATING K8S $dir MANIFESTS==="
             for app in $(ls ${dir}/); do
               cd ${dir}/${app}
-              helm lint -f=values/${{ vars.TEAM }}-gitops/${dir}/${app}/${{ vars.ENVIRONMENT }}-values.yml . &
+              helm lint -f=../../values/${{ vars.TEAM }}-gitops/${dir}/${app}/${{ vars.ENVIRONMENT }}-values.yml . &
               wait $!
               cd ${original_dir};
             done;
@@ -70,7 +70,7 @@ jobs:
             echo "===VALIDATING K8S $dir MANIFESTS==="
             for app in $(ls ${dir}/); do
               cd ${dir}/${app}
-              helm template . -f=values/${{ vars.TEAM }}-gitops/${dir}/${app}/${{ vars.ENVIRONMENT }}-values.yml | kubeconform -ignore-missing-schemas -strict &
+              helm template . -f=../../values/${{ vars.TEAM }}-gitops/${dir}/${app}/${{ vars.ENVIRONMENT }}-values.yml | kubeconform -ignore-missing-schemas -strict &
               wait $!
               cd ${original_dir};
             done;
