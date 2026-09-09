@@ -45,9 +45,6 @@ jobs:
 
       - name: Helm lint all k8s manifests
         run: |
-          pwd
-          ls 
-          ls values/backend-gitops/apps/voting-worker/
           set -e -E -u -o pipefail
           for dir in ${{ vars.TARGET_LINT_DIRECTORIES }}; do
             original_dir=$(pwd)
